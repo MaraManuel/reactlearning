@@ -1,0 +1,17 @@
+presets default:
+npx babel script.js --out-file script-compiled.js --presets=@babel/preset-env,@babel/flow
+
+
+meu comando
+npx babel src/index.js --watch --out-file dist/bundle.js
+
+o que funciona
+npx babel src/index.js --out-file dist/bundle.js --presets=@babel/preset-env,@babel/preset-react
+
+
+pasta de config default:
+npx babel --config-file /path/to/my/babel.config.json --out-dir dist ./src
+
+meu comando:
+tentei n consegui
+
