@@ -1,19 +1,19 @@
 import RepositoryItem from "./RepositoryItem"
-
 import '../styles/repositories.scss'
 
-export default function RepositoryList(){
+import { useState, useEffect } from "react"
 
-    const repository={
-        name:'Form 1',
-        description: 'This is a form made from React!',
-        link: 'https://github.com'
-    }
-    const repository2={
-        
-        description: '2This is a form made from React!',
-        link: 'https://github.com'
-    }
+export default function RepositoryList(){
+    
+    const [repositories, setRepositories] = useState([])
+
+    useEffect( () => {
+
+        fetch('https://api.github.com/orgs/rocketseat/repos')
+        .then(response => response.json())
+        .then(data => setRepositories(data))
+
+    }, [])
     
     return(
         <section className="repository-list">
@@ -21,11 +21,9 @@ export default function RepositoryList(){
             <h1>Repository List JS</h1>
 
             <ul>
-
-                <RepositoryItem repository={repository} />
-                <RepositoryItem repository={repository2} />
-                <RepositoryItem repository={repository} />
-                <RepositoryItem repository={repository} />
+                {
+                    repositories.map( repository => <RepositoryItem key={repository.name} repository={repository} />)
+                }
 
             </ul>
         </section>
