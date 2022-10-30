@@ -10,7 +10,7 @@ type User = {
 
 }
 
-function showMessage(user: User){
-    return `Welcome, ${user.nome}! Your emaile is ${user.email}, and your city is ${user.adress.city} and the state is ${user.adress.state} .`
+export default function showMessage(user: User){
+    return `Welcome, ${user.nome}! Your email is ${user.email}, and your city is ${user.adress.city} and the state is ${user.adress.state} .`
 
 }
