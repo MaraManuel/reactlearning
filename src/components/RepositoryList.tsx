@@ -4,8 +4,14 @@ import '../styles/repositories.scss'
 import { useState, useEffect } from "react"
 
 export default function RepositoryList(){
+
+    interface Repository{
+        name: string;
+        description: string;
+        html_url: string;
+    }
     
-    const [repositories, setRepositories] = useState([])
+    const [repositories, setRepositories] = useState<Repository[]>([])
 
     useEffect( () => {
 
